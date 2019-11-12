@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Studium
+{% endblock %}
+
+{% block main %}
+<div id="observablehq-fd41a660"></div>
+    <script type="module">
+    import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+    import define from "https://api.observablehq.com/@jonsch1/d3-sunburst-zoomable.js?v=3";
+    const inspect = Inspector.into("#observablehq-fd41a660");
+    (new Runtime).module(define, name => (name === "chart") && inspect());
+</script>
+{% endblock %}
