@@ -3,6 +3,9 @@ bin-debug/
 bin-release/
 [Oo]bj/
 [Bb]in/
+venv/
+External_Libraries/
+External Libraries/
 
 # Other files and folders
 .settings/
