@@ -14,6 +14,11 @@ def studium():
     return render_template("Studium.html")
 
 
+@app.route('/Philosophie/')
+def philosophie():
+    return render_template("text.html")
+
+
 @app.route('/Threats_and_Defense_Mechanisms/')
 def test():
     return render_template("Threats_and_Defense_Mechanisms.html")
