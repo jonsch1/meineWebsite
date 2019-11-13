@@ -28,6 +28,11 @@ def test():
 def spaceship():
     return render_template("spaceshuttle.html")
 
+@app.route('/blockevasion/')
+def blockevasion():
+    return render_template("blockevasion.html")
+
+
 
 
 if __name__ == '__main__':
