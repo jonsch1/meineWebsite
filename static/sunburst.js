@@ -77,7 +77,7 @@ const data = {
 
 };
 const width = window.innerWidth;
-const radius = width/2 -5;
+const radius = width/2 -20;
 const partition = data => d3.partition()
     .size([2 * Math.PI, radius])
   (d3.hierarchy(data)
@@ -144,8 +144,8 @@ let paths = g.append("g")
       .attr("clip-path", function(d, i){
         return 'url(#cp-'+ i + ')';
       })
+	   .style("font-size", d => {if(d.depth === 1) {return "40"} else return "normal"})
       .text(d => d.data.name);
-	   //.style("font-size",d => (d.depth<2)? "40px" : "15.5px");
   function labelVisible(d) {
     //console.log(+(d.x1 - d.x0 > 0),+((d.y0 + d.y1) / 2 * (d.x1 - d.x0) > 10))
     return (d.x1 - d.x0 > 0) && ((d.y0 + d.y1) / 2 * (d.x1 - d.x0) > 10);
