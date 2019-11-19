@@ -76,8 +76,8 @@ const data = {
 		]
 
 };
-const width = window.innerWidth;
-const radius = width/2 -20;
+const width = 900;
+const radius = width/2;
 const partition = data => d3.partition()
     .size([2 * Math.PI, radius])
   (d3.hierarchy(data)
@@ -106,7 +106,15 @@ let oLastZoomed = root;
 
 const svg = d3.select("body")
             .append("svg")
-            .attr("viewBox", [0, 0, width, width]);
+	.attr("width", width)
+	.attr("height", width)
+	.attr("viewBox", `0,0,${width},${width}`)
+	.style("width", "100%")
+	.style("height", "auto")
+	.style("padding", "10px")
+	.style("font", "10px sans-serif")
+	.style("box-sizing", "border-box");
+
 
 
 
@@ -132,7 +140,7 @@ let paths = g.append("g")
   paths.style('cursor', 'pointer')
     .on("click", clicked);
 
-   const labels = g.append("g")
+     const labels = g.append("g")
       .attr("pointer-events", "none")
       .attr("text-anchor", "middle")
     .selectAll("text")
@@ -140,12 +148,13 @@ let paths = g.append("g")
     .enter().append("text")
       .attr("transform", d => labelTransform(d))
       .attr("fill-opacity", d => +labelVisible(d) )
-      .attr("dy", "0.35 em")
+      .attr("dy", "0.35em")
       .attr("clip-path", function(d, i){
         return 'url(#cp-'+ i + ')';
       })
-	   //.style("font-size", d => {if(d.depth === 1) {return "40"} else return "normal"})
+		 .style("font-size", d => {if(d.depth===1){return "32px"}})
       .text(d => d.data.name);
+
   function labelVisible(d) {
     //console.log(+(d.x1 - d.x0 > 0),+((d.y0 + d.y1) / 2 * (d.x1 - d.x0) > 10))
     return (d.x1 - d.x0 > 0) && ((d.y0 + d.y1) / 2 * (d.x1 - d.x0) > 10);
