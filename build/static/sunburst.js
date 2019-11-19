@@ -144,7 +144,7 @@ let paths = g.append("g")
       .attr("clip-path", function(d, i){
         return 'url(#cp-'+ i + ')';
       })
-	   .style("font-size", d => {if(d.depth === 1) {return "40"} else return "normal"})
+	   //.style("font-size", d => {if(d.depth === 1) {return "40"} else return "normal"})
       .text(d => d.data.name);
   function labelVisible(d) {
     //console.log(+(d.x1 - d.x0 > 0),+((d.y0 + d.y1) / 2 * (d.x1 - d.x0) > 10))
