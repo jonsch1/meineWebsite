@@ -32,6 +32,9 @@ def spaceship():
 def neuralnet():
     return render_template("neuralnet.html")
 
+@app.route('/shader/')
+def shader():
+    return render_template("shaderhtml.html")
 
 
 
