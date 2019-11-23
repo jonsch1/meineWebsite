@@ -24,7 +24,7 @@
           <link href="/static/styles.css" rel="stylesheet"/>
         <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
         {% block header %}{% endblock %}
-        <title>JONSCHA: {% block title %}{% endblock %}</title>
+        <title>JONSCHA {% block title %}{% endblock %}</title>
 
     </head>
 
@@ -52,13 +52,6 @@
             </div>
         </nav>
 
-        {% if get_flashed_messages() %}
-            <header>
-                <div class="alert alert-primary border text-center" role="alert">
-                    {{ get_flashed_messages() | join(" ") }}
-                </div>
-            </header>
-        {% endif %}
 
         <main>
             {% block main %}{% endblock %}
