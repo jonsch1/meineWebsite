@@ -32,7 +32,17 @@
 
     <body>
         <nav class="navbar navbar-expand-md navbar-light">
-            <a class="navbar-brand" href="/"><span class="blue">J</span><span class="red">O</span><span class="yellow">N</span><span class="green">S</span><span class="red">C</span><span class="yellow">H</span><span class="green">A</span></a>
+            <a href="/">
+                <svg viewBox="0 0 730 180">
+                    <symbol id="s-text">
+                        <text id="Logo" text-anchor="middle" x="50%" y="94%">JONSCH</text>
+                    </symbol>
+                        <use xlink:href="#s-text" class="letter"></use>
+                        <use xlink:href="#s-text" class="letter"></use>
+                        <use xlink:href="#s-text" class="letter"></use>
+                        <use xlink:href="#s-text" class="letter"></use>
+                </svg>
+            </a>
             <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbar" data-toggle="collapse" type="button">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -57,33 +67,73 @@
 
         <main>
             
+    <style>
+    canvas {
+    position:absolute!important;
+    z-index:-1!important;
+    top: 0px!important;
+}
+body {
+    position: relative;
+    z-index: 2;
+    overflow-x: hidden;
+}
+    </style>
 
-<style>
-  body {
-      overflow-x: hidden!important;
-      overflow-y: hidden!important;
-      margin: 0 0!important;
-      background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
-  }
-main {
-    height: 100vh;
-    overflow-y: hidden!important;
-}
+<script src="../static/shaderhtml.js"></script>
+
+
+        </main>
+        
+
+<!-- Style für das Logo -->
+    <style>
+
 svg {
-  max-width: 100%;
-  max-height: 100%;
-  position: relative;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: 0;
+    height: 5rem;
+    display: flex;
+    font: 12em 'IBM Plex Sans';
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    justify-content: center;
 }
-#path123 {
-  stroke-width: 12;
-  stroke-dasharray: 22679.626953125;
-  stroke-dashoffset: 22679.626953125;
-  animation: draw 20s infinite;
+
+#Logo {
+  letter-spacing: -22px!important;
+}
+
+.letter {
+    fill: none;
+    stroke: white;
+    stroke-dasharray: 100%;
+    stroke-width: 4px;
+    stroke-dashoffset: 100%;
+    animation: stroke-offset 9s infinite linear;
+  animation-timing-function: ease;
+}
+
+.letter:nth-child(1){
+	stroke: rgb(83, 127, 190);
+	animation-delay: 0s;
+}
+.letter:nth-child(2){
+	stroke: rgb(234, 67, 59);
+	animation-delay: -1s;
+}
+.letter:nth-child(3){
+	stroke: rgb(245, 184, 46);
+	animation-delay: -2s;
+}
+.letter:nth-child(4){
+	stroke: rgb(46, 148, 75);
+	animation-delay: -3s;
+}
+
+@keyframes stroke-offset{
+	  to {
+    stroke-dashoffset: -110%;
+  }
 }
 
 @keyframes draw {
@@ -92,16 +142,6 @@ svg {
   }
 }
 </style>
-
-<svg height="100%" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="100%" xmlns:vectornator="http://vectornator.io" version="1.1" viewBox="0 0 1920 1080" preserveAspectRatio="none">
-<g id="Layer 1">
-<path id="path123" stroke="#000000" stroke-width="44.38" d="M283.125+182.813C229.688+764.062+434.063+887.812+230.625+790.312C27.1875+692.812+578.438+400.313+559.688+567.187C540.938+734.062+205.313+1009.69+575.625+907.5C945.938+805.312+772.5+899.062+829.688+645.937C886.875+392.813+926.25-7.49997+817.5+288.75C708.75+585+621.563+343.125+852.188+537.188C1082.81+731.25+1191.56+970.312+1064.06+704.062C936.563+437.813+1305+151.875+954.375+446.25C603.75+740.625+141.563+454.688+624.375+750C1107.19+1045.31+1393.12+1105.31+1064.06+934.687C735+764.062+494.063+1376.25+735.938+684.375C977.812-7.49997+349.688+169.688+887.813+375.938C1425.94+582.187+1381.87+373.125+1158.75+231.563C935.625+90+1111.87-22.5+910.313+77.8125C708.75+178.125+679.688-97.5+650.625+233.438C621.563+564.375+191.25+204.375+638.438+473.438C1085.62+742.5+796.875+996.562+1009.69+702.187C1222.5+407.813+741.563+23.4375+570+175.313C398.438+327.188-104.062-40.3125+169.688+536.25C443.438+1112.81+380.625+1046.25+450.938+1078.12C521.25+1110+388.125+944.062+426.563+613.125C465+282.188+176.25-288.75+585.938+248.438C995.625+785.625+546.563+879.375+870.938+531.563C1195.31+183.75+876.563+470.625+1202.81+651.562C1529.06+832.5+1329.37+1338.75+1598.44+680.625C1867.5+22.5+1681.87-266.25+1601.25+284.063C1520.62+834.375+1485+1106.25+1446.56+819.375C1408.12+532.5+1272.19-345.937+1345.31+193.125C1418.44+732.187+1314.37+285.938+1495.31+387.188C1676.25+488.438+1720.31-126.562+1688.44+435.938C1656.56+998.437+1425.94+926.25+1662.19+924.375C1898.44+922.5+1903.12+1240.31+1849.69+863.437C1796.25+486.563+1331.25+376.875+1438.12+214.688C1545+52.5+1771.87+129.375+1798.12+373.125C1824.37+616.875+1798.12+432.188+1856.25+483.75" fill="#ffffff" stroke-linecap="butt" opacity="1" stroke-linejoin="round"/>
-</g>
-</svg>
-
-
-        </main>
-        
     </body>
 
 </html>

@@ -40,7 +40,17 @@ background: linear-gradient(to left, rgb(165, 254, 203, .5), rgb(82, 189, 255, .
 
     <body>
         <nav class="navbar navbar-expand-md navbar-light">
-            <a class="navbar-brand" href="/"><span class="blue">J</span><span class="red">O</span><span class="yellow">N</span><span class="green">S</span><span class="red">C</span><span class="yellow">H</span><span class="green">A</span></a>
+            <a href="/">
+                <svg viewBox="0 0 730 180">
+                    <symbol id="s-text">
+                        <text id="Logo" text-anchor="middle" x="50%" y="94%">JONSCH</text>
+                    </symbol>
+                        <use xlink:href="#s-text" class="letter"></use>
+                        <use xlink:href="#s-text" class="letter"></use>
+                        <use xlink:href="#s-text" class="letter"></use>
+                        <use xlink:href="#s-text" class="letter"></use>
+                </svg>
+            </a>
             <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbar" data-toggle="collapse" type="button">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -69,6 +79,63 @@ background: linear-gradient(to left, rgb(165, 254, 203, .5), rgb(82, 189, 255, .
 
         </main>
         
+
+<!-- Style für das Logo -->
+    <style>
+
+svg {
+    height: 5rem;
+    display: flex;
+    font: 12em 'IBM Plex Sans';
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+#Logo {
+  letter-spacing: -22px!important;
+}
+
+.letter {
+    fill: none;
+    stroke: white;
+    stroke-dasharray: 100%;
+    stroke-width: 4px;
+    stroke-dashoffset: 100%;
+    animation: stroke-offset 9s infinite linear;
+  animation-timing-function: ease;
+}
+
+.letter:nth-child(1){
+	stroke: rgb(83, 127, 190);
+	animation-delay: 0s;
+}
+.letter:nth-child(2){
+	stroke: rgb(234, 67, 59);
+	animation-delay: -1s;
+}
+.letter:nth-child(3){
+	stroke: rgb(245, 184, 46);
+	animation-delay: -2s;
+}
+.letter:nth-child(4){
+	stroke: rgb(46, 148, 75);
+	animation-delay: -3s;
+}
+
+@keyframes stroke-offset{
+	  to {
+    stroke-dashoffset: -110%;
+  }
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+</style>
     </body>
 
 </html>
