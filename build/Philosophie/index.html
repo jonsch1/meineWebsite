@@ -35,14 +35,8 @@
     <body>
         <nav class="navbar navbar-expand-md navbar-light">
             <a href="/">
-                <svg viewBox="0 0 730 180">
-                    <symbol id="s-text">
-                        <text id="Logo" text-anchor="middle" x="50%" y="94%">JONSCH</text>
-                    </symbol>
-                        <use xlink:href="#s-text" class="letter"></use>
-                        <use xlink:href="#s-text" class="letter"></use>
-                        <use xlink:href="#s-text" class="letter"></use>
-                        <use xlink:href="#s-text" class="letter"></use>
+                <svg viewBox="0 0 960 200">
+                        <text id="Logo" class ="letter" text-anchor="middle" x="37%" y="90%">JONSCH</text>
                 </svg>
             </a>
             <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbar" data-toggle="collapse" type="button">
@@ -109,7 +103,7 @@ svg {
 
 .letter {
     fill: none;
-    stroke: white;
+    stroke: black;
     stroke-dasharray: 100%;
     stroke-width: 4px;
     stroke-dashoffset: 100%;
@@ -117,22 +111,6 @@ svg {
   animation-timing-function: ease;
 }
 
-.letter:nth-child(1){
-	stroke: rgb(83, 127, 190);
-	animation-delay: 0s;
-}
-.letter:nth-child(2){
-	stroke: rgb(234, 67, 59);
-	animation-delay: -1s;
-}
-.letter:nth-child(3){
-	stroke: rgb(245, 184, 46);
-	animation-delay: -2s;
-}
-.letter:nth-child(4){
-	stroke: rgb(46, 148, 75);
-	animation-delay: -3s;
-}
 
 @keyframes stroke-offset{
 	  to {
